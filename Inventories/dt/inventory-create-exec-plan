@@ -1,0 +1,13 @@
+[all:vars]
+####backend config param ####
+backend_input = false
+
+####project path to execute #####
+projectpath = "terraform-scripts/create-subnet-ec2-ansible/"
+
+#####Terraform parameters#####
+amiid = "ami-00f4cff050d28ee2d"
+instancetype = "t2.micro"
+vpcid = "vpc-0d33961a622bb6b3e"
+subnetcidr = "10.22.5.0/24"
+

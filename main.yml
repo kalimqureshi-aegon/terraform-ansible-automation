@@ -1,0 +1,32 @@
+---
+  - hosts: localhost
+    gather_facts: yes
+    tasks:
+      - name:  deploy existing plan
+        terraform:
+          plan_file: "{{ planfile }}"
+          backend_config:
+            input: "{{ backend_input }}"
+          variables:
+            ami_id: "{{ amiid }}"
+            instance_type: "{{ instancetype }}"
+            vpc_id: "{{ vpcid }}"
+            subnet_cidr: "{{ subnetcidr }}"
+          project_path: "{{ projectpath }}"
+          state: planned
+        when: planfile is defined
+
+      - name:  make plan and deploy if changes exist
+        terraform:
+          backend_config:
+            input: "{{ backend_input }}"
+          variables:
+            ami_id: "{{ amiid }}"
+            instance_type: "{{ instancetype }}"
+            vpc_id: "{{ vpcid }}"
+            subnet_cidr: "{{ subnetcidr }}"
+          project_path: "{{ projectpath }}"
+          state: present
+        when: planfile is undefined
+
+

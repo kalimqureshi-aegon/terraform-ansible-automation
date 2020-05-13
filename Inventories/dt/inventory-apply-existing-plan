@@ -1,0 +1,15 @@
+[all:vars]
+####backend config param ####
+backend_input = false
+
+####project path to execute #####
+projectpath = "terraform-scripts/create-subnet-ec2-plan/"
+
+#####Terraform parameters#####
+amiid = "ami-00f4cff050d28ee2d"
+instancetype = "t2.micro"
+vpcid = "vpc-0d33961a622bb6b3e"
+subnetcidr = "10.22.10.0/24"
+
+#####Mention existing plan###
+planfile = "/Users/kalimqureshi/Desktop/office_work/git/selfscripts/practical-int/int/terraform-scripts/create-subnet-ec2-plan/plan_output.txt"
