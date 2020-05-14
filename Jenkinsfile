@@ -8,7 +8,7 @@ pipeline {
         EXECUTEINVENTORY = "$WORKSPACE/Inventories/dt/inventory-create-exec-plan"
     }
     parameters {
-		choice (choices: ['PlanOnly', 'Execute'], description: 'Choose type of deployment for Terraform Scripts', name: 'DeploymentType')
+		choice (choices: ['ApplyExistingPlan', 'ExecuteTerraform'], description: 'Choose type of deployment for Terraform Scripts', name: 'DeploymentType')
 	}
     stages {
         stage('Checkout Devops') {
@@ -25,7 +25,7 @@ pipeline {
             steps {
                 withCredentials([[$class: 'AmazonWebServicesCredentialsBinding', credentialsId: 'AWS-Dev']]) {                       
                         script{
-                            if (params.DeploymentType =="PlanOnly"){
+                            if (params.DeploymentType =="ApplyExistingPlan"){
                                 print 'INFO: Plan only tasks will be executed'
                                 sh "ansible-playbook -i $PLANONLYINVENTORY main.yml"
                             }
