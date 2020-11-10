@@ -1,9 +1,9 @@
 pipeline {
     agent {
-        label 'Kubernetes'
+        label 'kalim'
     }
     environment {
-		EMAIL_TO = 'kalim.qureshi@aegonlife.com'
+		EMAIL_TO = 'qureshi.kalim007@gmail.com'
         PLANONLYINVENTORY = "$WORKSPACE/Inventories/dt/inventory-apply-existing-plan"
         EXECUTEINVENTORY = "$WORKSPACE/Inventories/dt/inventory-create-exec-plan"
     }
